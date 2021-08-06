@@ -20,13 +20,7 @@ namespace WebTask.Controllers
             _userManager = userManager;
         }
 
-        // GET: RolesController
-        public ActionResult Index()
-        {
-            return View(_roleManager.Roles.ToList());
-        }
-
-        public IActionResult UserList() => View(_userManager.Users.ToList());
+        public IActionResult Index() => View(_userManager.Users.ToList());
 
         public async Task<IActionResult> Edit(string userId)
         {
@@ -49,6 +43,7 @@ namespace WebTask.Controllers
 
             return NotFound();
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {
@@ -69,10 +64,22 @@ namespace WebTask.Controllers
 
                 await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
-                return RedirectToAction("UserList");
+                return RedirectToAction("Index");
             }
 
             return NotFound();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(string id)
+        {
+            User user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                IdentityResult result = await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
