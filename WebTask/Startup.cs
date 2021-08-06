@@ -30,10 +30,10 @@ namespace WebTask
                 opts.Password.RequireLowercase = false; // требуются ли символы в нижнем регистре
                 opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
                 opts.Password.RequireDigit = false; // требуются ли цифры
-            })
-                .AddEntityFrameworkStores<ApplicationContext>();
+            }).AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
+            
         }
 
         public void Configure(IApplicationBuilder app)

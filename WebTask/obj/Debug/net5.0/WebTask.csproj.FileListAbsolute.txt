@@ -54,7 +54,6 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\ref\WebTask.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.pdb
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.genruntimeconfig.cache
-C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.csprojAssemblyReference.cache
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\appsettings.json
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\WebTask.Views.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\WebTask.Views.pdb
@@ -75,3 +74,6 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Roles\Edit.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Roles\UserList.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.csprojAssemblyReference.cache
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
