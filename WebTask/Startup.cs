@@ -1,4 +1,5 @@
 using WebTask.Models;
+using WebTask.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using WebTask.Data;
+using Westwind.AspNetCore.Markdown;
 
 namespace WebTask
 {
@@ -33,7 +36,16 @@ namespace WebTask
             }).AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
-            
+            services.AddTransient<ICollectData, CollectData>();
+            //services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
+            //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+            //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //});
+
+
+            services.AddMarkdown();
+            services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
         }
 
         public void Configure(IApplicationBuilder app)
@@ -41,6 +53,8 @@ namespace WebTask
             app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
+
+            app.UseMarkdown(); 
             app.UseStaticFiles();
 
             app.UseRouting();

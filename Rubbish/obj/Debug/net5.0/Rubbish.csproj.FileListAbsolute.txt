@@ -1,0 +1,8 @@
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.csprojAssemblyReference.cache
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.AssemblyInfoInputs.cache
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.AssemblyInfo.cs
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.csproj.CoreCompileInputs.cache
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.RazorAssemblyInfo.cache
+C:\Users\Ксения\source\repos\WebTask\Rubbish\obj\Debug\net5.0\Rubbish.RazorAssemblyInfo.cs

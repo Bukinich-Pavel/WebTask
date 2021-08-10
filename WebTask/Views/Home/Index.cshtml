@@ -1,5 +1,17 @@
-﻿@{
+﻿@using WebTask;
+@{
     ViewData["Title"] = "Home Page";
 }
+<table class="table table-striped">
+
+    @foreach (Collect collect in Model)
+    {
+        <tr>
+            <th>@collect.NameCollection</th>
+            <th>@collect.NameAuthor</th>
+            <th>@Markdown.ParseHtmlString(collect.ShortDescription)</th>
+        </tr>
+    }
+</table>
 
 

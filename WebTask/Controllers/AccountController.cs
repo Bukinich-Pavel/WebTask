@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using WebTask.ViewModels;
 using WebTask.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebTask.Controllers
 {
@@ -90,5 +93,8 @@ namespace WebTask.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+
+
     }
 }

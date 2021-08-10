@@ -11,14 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("588ac7a4-0e5c-4323-9c88-b8e40463e7a4")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("WebTask")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("WebTask")]
-[assembly: System.Reflection.AssemblyTitleAttribute("WebTask")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Westwind.AspNetCore.Markdown")]
 
 // Создано классом WriteCodeFragment MSBuild.
 

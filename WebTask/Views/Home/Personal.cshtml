@@ -1,0 +1,20 @@
+﻿@using WebTask;
+<p></p>
+<form method="get" asp-action="AddCollect" asp-controller="Home">
+    <button type="submit" class="btn btn-sm btn-danger">Добавить коллекцию</button>
+</form>
+<table class="table table-striped">
+
+    @foreach (Collect collect in Model)
+    {
+        @if (collect.NameAuthor == User.Identity.Name)
+        {
+            <tr>
+                <th>@collect.NameCollection</th>
+                <th>@collect.NameAuthor</th>
+                <th>@Markdown.ParseHtmlString(collect.ShortDescription)</th>
+            </tr>
+        }
+    }
+</table>
+

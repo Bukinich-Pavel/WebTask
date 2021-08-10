@@ -7,11 +7,11 @@
     <form method="post" asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
         @*<input type="submit" value="Выход"/>*@
         @*<a class="navbar-brand" href="~/">В начало</a>
-        <a class="navbar-brand" href="/Home/Add">Добавить автомобиль</a>
-        <a class="navbar-brand" herf="#">@User.Identity.Name</a>*@
+            <a class="navbar-brand" href="/Home/Add">Добавить автомобиль</a>
+            <a class="navbar-brand" herf="#">@User.Identity.Name</a>*@
         <a class="navbar-brand" asp-action="Index" asp-controller="Home">В начало</a>
         <a class="navbar-brand" asp-action="Index" asp-controller="Roles">Список пользователей</a>
-        <a class="navbar-brand" herf="#">@User.Identity.Name</a>
+        <a class="navbar-brand" asp-action="Personal" asp-controller="Home">@User.Identity.Name</a>
         <a class="navbar-brand" href="#" onclick="document.getElementById('logoutform').submit()">Выход</a>
     </form>
 
@@ -19,17 +19,17 @@
 }
 else if (User.Identity.IsAuthenticated)
 {
-<div class="btn-group pull-right" style="width: 650px;">
+<div class="btn-group pull-right" style="width: 650px;" align="right">
     <form method="post" asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
         <a class="navbar-brand" asp-action="Index" asp-controller="Home">В начало</a>
-        <a class="navbar-brand">@User.Identity.Name</a>
-        <a class="navbar-brand">Выход</a>
+        <a class="navbar-brand" asp-action="Personal" asp-controller="Home">@User.Identity.Name</a>
+        <a class="navbar-brand" href="#" onclick="document.getElementById('logoutform').submit()">Выход</a>
     </form>
 </div>
 }
 else
 {
-    <div class="btn-group pull-right">
+    <div class="btn-group pull-right" align="right">
         <a class="navbar-brand" asp-action="Login" asp-controller="Account">Вход</a>
         <a class="navbar-brand" asp-action="Register" asp-controller="Account">Регистрация </a>
     </div>

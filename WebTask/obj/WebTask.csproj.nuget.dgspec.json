@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.15.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.8, )"
@@ -47,6 +55,20 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Westwind.AspNetCore.Markdown": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "jQuery.filedrop": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [

@@ -1,0 +1,55 @@
+﻿@model WebTask.Models.Collect
+<h2 align="center">Создание новой коллекции</h2>
+<h3>Основные параметры коллекции</h3>
+<form asp-controller="Home" asp-action="AddCollect">
+    <div class="navbar-brand">
+        <label>Имя коллекции</label><br />
+        <input asp-for="NameCollection" />
+    </div>
+    <div class="navbar-brand">
+        <label>Краткое описание</label><br />
+        <textarea asp-for="ShortDescription" cols="50"></textarea>
+    </div>
+    <div class="navbar-brand">
+        <label>Тема</label><br />
+        <input asp-for="Topic" />
+    </div>
+    <div class="navbar-brand">
+        <input type="submit" value="Создать" />
+    </div>
+
+    <br />
+    <h3>Дополнительные параметры коллекции</h3>
+    <div class="navbar-brand">
+        <details>
+            <summary>Добавить числовые параметры</summary>
+            <label>Название 1-го</label> <input asp-for="integer1_visible" /> <br />
+            <label>Название 2-го</label> <input asp-for="integer2_visible" /> <br />
+            <label>Название 3-го</label> <input asp-for="integer3_visible" /> <br />
+        </details>
+        <details>
+            <summary>Добавить однострочные параметры</summary>
+            <label>Название 1-го</label> <input asp-for="string1_visible" /> <br />
+            <label>Название 2-го</label> <input asp-for="string2_visible" /> <br />
+            <label>Название 3-го</label> <input asp-for="string3_visible" /> <br />
+        </details>
+        <details>
+            <summary>Добавить текстовые параметры</summary>
+            <label>Название 1-го</label> <input asp-for="text1_visible" /> <br />
+            <label>Название 2-го</label> <input asp-for="text2_visible" /> <br />
+            <label>Название 3-го</label> <input asp-for="text3_visible" /> <br />
+        </details>
+        <details>
+            <summary>Добавить параметры даты</summary>
+            <label>Название 1-го</label> <input asp-for="data1_visible" /> <br />
+            <label>Название 2-го</label> <input asp-for="data2_visible" /> <br />
+            <label>Название 3-го</label> <input asp-for="data3_visible" /> <br />
+        </details>
+        <details>
+            <summary>Добавить параметры "yes/no"</summary>
+            <label>Название 1-го</label> <input asp-for="checkbox1_visible" />  <br />
+            <label>Название 2-го</label> <input asp-for="checkbox2_visible" />  <br />
+            <label>Название 3-го</label> <input asp-for="checkbox3_visible" />  <br />
+        </details>
+    </div>
+</form>
