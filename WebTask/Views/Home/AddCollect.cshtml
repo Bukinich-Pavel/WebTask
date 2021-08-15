@@ -1,21 +1,47 @@
 ﻿@model WebTask.Models.Collect
 <h2 align="center">Создание новой коллекции</h2>
 <h3>Основные параметры коллекции</h3>
+<head>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        #dropSection {
+            height: 300px;
+            width: 600px;
+            background-color: skyblue;
+        }
+
+        #btnUpload {
+            display: none;
+        }
+
+        .active {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+
 <form asp-controller="Home" asp-action="AddCollect">
+    <div id="dropArea">
+        Переместите ваш файл сюда
+    </div>
     <div class="navbar-brand">
         <label>Имя коллекции</label><br />
-        <input asp-for="NameCollection" />
+        <input class="form-control" asp-for="NameCollection" />
     </div>
     <div class="navbar-brand">
         <label>Краткое описание</label><br />
-        <textarea asp-for="ShortDescription" cols="50"></textarea>
+        <textarea class="form-control" asp-for="ShortDescription"></textarea>
     </div>
     <div class="navbar-brand">
         <label>Тема</label><br />
-        <input asp-for="Topic" />
+        <input class="form-control" asp-for="Topic" />
     </div>
     <div class="navbar-brand">
-        <input type="submit" value="Создать" />
+        <input class="btn btn-sm btn-primary" type="submit" value="Создать" />
     </div>
 
     <br />
@@ -23,33 +49,75 @@
     <div class="navbar-brand">
         <details>
             <summary>Добавить числовые параметры</summary>
-            <label>Название 1-го</label> <input asp-for="integer1_visible" /> <br />
-            <label>Название 2-го</label> <input asp-for="integer2_visible" /> <br />
-            <label>Название 3-го</label> <input asp-for="integer3_visible" /> <br />
+            <label>Название 1-го</label> <input class="form-control" asp-for="integer1_visible" /> <br />
+            <label>Название 2-го</label> <input class="form-control" asp-for="integer2_visible" /> <br />
+            <label>Название 3-го</label> <input class="form-control" asp-for="integer3_visible" /> <br />
         </details>
+        <p></p>
         <details>
             <summary>Добавить однострочные параметры</summary>
-            <label>Название 1-го</label> <input asp-for="string1_visible" /> <br />
-            <label>Название 2-го</label> <input asp-for="string2_visible" /> <br />
-            <label>Название 3-го</label> <input asp-for="string3_visible" /> <br />
+            <label>Название 1-го</label> <input class="form-control" asp-for="string1_visible" /> <br />
+            <label>Название 2-го</label> <input class="form-control" asp-for="string2_visible" /> <br />
+            <label>Название 3-го</label> <input class="form-control" asp-for="string3_visible" /> <br />
         </details>
+        <p></p>
         <details>
             <summary>Добавить текстовые параметры</summary>
-            <label>Название 1-го</label> <input asp-for="text1_visible" /> <br />
-            <label>Название 2-го</label> <input asp-for="text2_visible" /> <br />
-            <label>Название 3-го</label> <input asp-for="text3_visible" /> <br />
+            <label>Название 1-го</label> <input class="form-control" asp-for="text1_visible" /> <br />
+            <label>Название 2-го</label> <input class="form-control" asp-for="text2_visible" /> <br />
+            <label>Название 3-го</label> <input class="form-control" asp-for="text3_visible" /> <br />
         </details>
+        <p></p>
         <details>
             <summary>Добавить параметры даты</summary>
-            <label>Название 1-го</label> <input asp-for="data1_visible" /> <br />
-            <label>Название 2-го</label> <input asp-for="data2_visible" /> <br />
-            <label>Название 3-го</label> <input asp-for="data3_visible" /> <br />
+            <label>Название 1-го</label> <input class="form-control" asp-for="data1_visible" /> <br />
+            <label>Название 2-го</label> <input class="form-control" asp-for="data2_visible" /> <br />
+            <label>Название 3-го</label> <input class="form-control" asp-for="data3_visible" /> <br />
         </details>
+        <p></p>
         <details>
             <summary>Добавить параметры "yes/no"</summary>
-            <label>Название 1-го</label> <input asp-for="checkbox1_visible" />  <br />
-            <label>Название 2-го</label> <input asp-for="checkbox2_visible" />  <br />
-            <label>Название 3-го</label> <input asp-for="checkbox3_visible" />  <br />
+            <label>Название 1-го</label> <input class="form-control" asp-for="checkbox1_visible" />  <br />
+            <label>Название 2-го</label> <input class="form-control" asp-for="checkbox2_visible" />  <br />
+            <label>Название 3-го</label> <input class="form-control" asp-for="checkbox3_visible" />  <br />
         </details>
     </div>
 </form>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script src="~/scripts/jquery.filedrop.js"></script>
+    <script>
+        $(function () {
+        $('#dropArea').filedrop({
+            url: '@Url.Action("UploadedPhoto")',
+            allowedfiletypes: ['image/jpeg', 'image/png'],
+            allowedfileextensions: ['.jpg', '.jpeg', '.png'],
+            paramname: 'file',
+            maxfiles: 1,
+            maxfilesize: 25,
+            dragOver: function () {
+                $('#dropArea').addClass('active-drop');
+            },
+            dragLeave: function () {
+                $('#dropArea').removeClass('active-drop');
+            },
+            drop: function () {
+                $('#dropArea').removeClass('active-drop');
+            },
+            afterAll: function (e) {
+
+                //    $('#dropArea').html('file uploaded successfully');
+            },
+            uploadFinished: function (i, file, response, time) {
+                $('#dropArea').addClass('ok-drop');
+                $('#dropArea').html('Файл успешно добавлен');
+
+                console.log(file);
+                //    $('#uploadedFiles').append(file.name + '<br />')
+            }
+        })
+        })
+
+    </script>
+    <link href="~/css/StyleForDropIMG.css" rel="stylesheet" />
+    @*<script src="~/scripts/scriptDropIMG.js"></script>*@
+

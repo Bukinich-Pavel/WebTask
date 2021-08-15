@@ -1,0 +1,88 @@
+﻿@model WebTask.Models.Item
+<p></p>
+
+<form asp-controller="Home" asp-action="EditItem">
+    <div hidden class="navbar-brand">
+        <label>Id коллекции</label><br />
+        <input class="form-control" asp-for="CollectId"/>
+    </div>
+    <div class="navbar-brand">
+        <label>Имя айтема</label><br />
+        <input class="form-control" asp-for="NameItem" />
+    </div>
+    <div class="navbar-brand">
+        <label>Тэги</label><br />
+        <textarea class="form-control" asp-for="Tags"></textarea>
+    </div>
+
+    <div class="navbar-brand">
+        @if (ViewBag.collect.integer1_visible != null)
+        {
+            <label>@ViewBag.collect.integer1_visible</label> <input class="form-control" type="number" asp-for="integer1" /><p></p>
+        }
+        @if (ViewBag.collect.integer2_visible != null)
+        {
+            <label>@ViewBag.collect.integer2_visible</label> <input class="form-control" type="number" asp-for="integer2" /><p></p>
+        }
+        @if (ViewBag.collect.integer3_visible != null)
+        {
+            <label>@ViewBag.collect.integer3_visible</label> <input class="form-control" type="number" asp-for="integer3" /><p></p>
+        }
+
+        @if (ViewBag.collect.string1_visible != null)
+        {
+            <label>@ViewBag.collect.string1_visible</label> <input class="form-control" asp-for="string1" /><p></p>
+        }
+        @if (ViewBag.collect.string2_visible != null)
+        {
+            <label>@ViewBag.collect.string2_visible</label> <input class="form-control" asp-for="string2" /><p></p>
+        }
+        @if (ViewBag.collect.string3_visible != null)
+        {
+            <label>@ViewBag.collect.string3_visible</label> <input class="form-control" asp-for="string3" /><p></p>
+        }
+
+        @if (ViewBag.collect.text1_visible != null)
+        {
+            <label>@ViewBag.collect.text1_visible</label> <input class="form-control" asp-for="text1" /><p></p>
+        }
+        @if (ViewBag.collect.text2_visible != null)
+        {
+            <label>@ViewBag.collect.text2_visible</label> <input class="form-control" asp-for="text2" /><p></p>
+        }
+        @if (ViewBag.collect.text3_visible != null)
+        {
+            <label>@ViewBag.collect.text3_visible</label> <input class="form-control" asp-for="text3" /><p></p>
+        }
+
+        @if (ViewBag.collect.data1_visible != null)
+        {
+            <label>@ViewBag.collect.data1_visible</label> <input class="form-control" type="date" asp-for="data1" /><p></p>
+        }
+        @if (ViewBag.collect.data2_visible != null)
+        {
+            <label>@ViewBag.collect.data2_visible</label> <input class="form-control" type="date" asp-for="data2" /><p></p>
+        }
+        @if (ViewBag.collect.data3_visible != null)
+        {
+            <label>@ViewBag.collect.data3_visible</label> <input class="form-control" type="date" asp-for="data3" /><p></p>
+        }
+
+        @if (ViewBag.collect.checkbox1_visible != null)
+        {
+            <label>@ViewBag.collect.checkbox1_visible</label> <input type="checkbox" asp-for="checkbox1" value="true" /><p></p>
+        }
+        @if (ViewBag.collect.checkbox2_visible != null)
+        {
+            <label>@ViewBag.collect.checkbox2_visible</label> <input type="checkbox" asp-for="checkbox2" value="true" /><p></p>
+        }
+        @if (ViewBag.collect.checkbox3_visible != null)
+        {
+            <label>@ViewBag.collect.checkbox1_visible</label> <input type="checkbox" asp-for="checkbox1" value="true" /><p></p>
+        }
+    </div>
+    <div class="navbar-brand">
+        <input class="btn btn-sm btn-primary" type="submit" value="Сохранить" />
+    </div>
+
+</form>

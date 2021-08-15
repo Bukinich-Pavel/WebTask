@@ -7,6 +7,7 @@ namespace WebTask.Models
     public class ApplicationContext : IdentityDbContext<User>
     {
         public DbSet<Collect> collects { get; set; }
+        public DbSet<Item> items { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)

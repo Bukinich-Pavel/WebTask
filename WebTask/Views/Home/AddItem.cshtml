@@ -1,0 +1,91 @@
+﻿@model WebTask.Models.Collect
+
+
+<form asp-controller="Home" asp-action="AddItemInCollect">
+    <div hidden class="navbar-brand">
+        <label>Id коллекции</label><br />
+        <input class="form-control" name="CollectId" value="@Model.Id" />
+    </div>
+    <div hidden class="navbar-brand">
+        <label>Коллекция</label><br />
+        <input class="form-control" name="сollect" value="@Model" />
+    </div>
+    <div class="navbar-brand">
+        <label>Имя айтема</label><br />
+        <input class="form-control" name="NameItem" />
+    </div>
+    <div class="navbar-brand">
+        <label>Тэги</label><br />
+        <textarea class="form-control" name="Tags"></textarea>
+    </div>
+    <div class="navbar-brand">
+        @if (Model.integer1_visible != null)
+        {
+            <label>@Model.integer1_visible</label> <input class="form-control" type="number" name="integer1" /><p></p>
+        }
+        @if (Model.integer2_visible != null)
+        {
+            <label>@Model.integer2_visible</label> <input class="form-control" type="number" name="integer2" /><p></p>
+        }
+        @if (Model.integer3_visible != null)
+        {
+            <label>@Model.integer3_visible</label> <input class="form-control" type="number" name="integer3" /><p></p>
+        }
+
+        @if (Model.string1_visible != null)
+        {
+            <label>@Model.string1_visible</label> <input class="form-control" name="string1" /><p></p>
+        }
+        @if (Model.string2_visible != null)
+        {
+            <label>@Model.string2_visible</label> <input class="form-control" name="string2" /><p></p>
+        }
+        @if (Model.string3_visible != null)
+        {
+            <label>@Model.string3_visible</label> <input class="form-control" name="string3" /><p></p>
+        }
+
+        @if (Model.text1_visible != null)
+        {
+            <label>@Model.text1_visible</label> <input class="form-control" name="text1" /><p></p>
+        }
+        @if (Model.text2_visible != null)
+        {
+            <label>@Model.text2_visible</label> <input class="form-control" name="text2" /><p></p>
+        }
+        @if (Model.text3_visible != null)
+        {
+            <label>@Model.text3_visible</label> <input class="form-control" name="text3" /><p></p>
+        }
+
+        @if (Model.data1_visible != null)
+        {
+            <label>@Model.data1_visible</label> <input class="form-control" type="date" name="data1" /><p></p>
+        }
+        @if (Model.data2_visible != null)
+        {
+            <label>@Model.data2_visible</label> <input class="form-control" type="date" name="data2" /><p></p>
+        }
+        @if (Model.data3_visible != null)
+        {
+            <label>@Model.data3_visible</label> <input class="form-control" type="date" name="data3" /><p></p>
+        }
+
+        @if (Model.checkbox1_visible != null)
+        {
+            <label>@Model.checkbox1_visible</label> <input type="checkbox" name="checkbox1" value="true" /><p></p>
+        }
+        @if (Model.checkbox2_visible != null)
+        {
+            <label>@Model.checkbox2_visible</label> <input type="checkbox" name="checkbox2" value="true" /><p></p>
+        }
+        @if (Model.checkbox3_visible != null)
+        {
+            <label>@Model.checkbox1_visible</label> <input type="checkbox" name="checkbox1" value="true" /><p></p>
+        }
+    </div>
+    <div class="navbar-brand">
+        <input class="btn btn-sm btn-primary" type="submit" value="Добавить" />
+    </div>
+
+</form>

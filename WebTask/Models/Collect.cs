@@ -31,5 +31,10 @@ namespace WebTask.Models
         public string checkbox2_visible { get; set; }
         public string checkbox3_visible { get; set; }
 
+        public ICollection<Item> Items { get; set; }
+        public Collect()
+        {
+            Items = new List<Item>();
+        }
     }
 }

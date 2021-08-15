@@ -71,7 +71,6 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Roles\Edit.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.csprojAssemblyReference.cache
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\Personal.cshtml.g.cs
@@ -81,3 +80,10 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Microsoft.En
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Markdig.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Westwind.AspNetCore.Markdown.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\CloudinaryDotNet.dll
+C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Microsoft.Extensions.WebEncoders.dll
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\Edit.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\AddItem.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.csprojAssemblyReference.cache
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\Items.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\EditItemView.cshtml.g.cs

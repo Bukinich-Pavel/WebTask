@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using WebTask.Data;
 using Westwind.AspNetCore.Markdown;
+using CloudinaryDotNet;
 
 namespace WebTask
 {
@@ -37,6 +38,7 @@ namespace WebTask
 
             services.AddControllersWithViews();
             services.AddTransient<ICollectData, CollectData>();
+            services.AddTransient<IItemData, ItemData>();
             //services.AddAuthentication().AddFacebook(facebookOptions =>
             //{
             //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
@@ -68,6 +70,9 @@ namespace WebTask
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
+
     }
 }

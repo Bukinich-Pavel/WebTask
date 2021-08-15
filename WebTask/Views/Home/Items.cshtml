@@ -1,0 +1,175 @@
+﻿@using WebTask;
+@model WebTask.Models.Item
+<h4>Коллекция: @ViewBag.Collect.NameCollection</h4>
+<h4>Автора: @ViewBag.Collect.NameAuthor</h4>
+<p></p>
+<form asp-controller="Home" method="post">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Имя айтема</th>
+            <th>Тэги айтема</th>
+            @if (ViewBag.Collect.integer1_visible != null)
+             {
+                <th>@ViewBag.Collect.integer1_visible</th>
+             }
+            @if (ViewBag.Collect.integer2_visible != null)
+             {
+                <th>@ViewBag.Collect.integer2_visible</th>
+             }
+            @if (ViewBag.Collect.integer3_visible != null)
+             {
+                <th>@ViewBag.Collect.integer3_visible</th>
+             }
+
+            @if (ViewBag.Collect.string1_visible != null)
+             {
+                <th>@ViewBag.Collect.string1_visible</th>
+             }
+            @if (ViewBag.Collect.string2_visible != null)
+             {
+                <th>@ViewBag.Collect.string2_visible</th>
+             }
+            @if (ViewBag.Collect.string3_visible != null)
+             {
+                <th>@ViewBag.Collect.string3_visible</th>
+             }
+
+            @if (ViewBag.Collect.text1_visible != null)
+             {
+                <th>@ViewBag.Collect.text1_visible</th>
+             }
+            @if (ViewBag.Collect.text2_visible != null)
+             {
+                <th>@ViewBag.Collect.text2_visible</th>
+             }
+            @if (ViewBag.Collect.text3_visible != null)
+             {
+                <th>@ViewBag.Collect.text3_visible</th>
+             }
+
+            @if (ViewBag.Collect.data1_visible != null)
+             {
+                <th>@ViewBag.Collect.data1_visible</th>
+             }
+            @if (ViewBag.Collect.data2_visible != null)
+             {
+                <th>@ViewBag.Collect.data2_visible</th>
+             }
+            @if (ViewBag.Collect.data3_visible != null)
+             {
+                <th>@ViewBag.Collect.data3_visible</th>
+             }
+
+            @if (ViewBag.Collect.checkbox1_visible != null)
+             {
+                <th>@ViewBag.Collect.checkbox1_visible</th>
+             }
+            @if (ViewBag.Collect.checkbox2_visible != null)
+             {
+                <th>@ViewBag.Collect.checkbox2_visible</th>
+             }
+            @if (ViewBag.Collect.checkbox3_visible != null)
+             {
+                <th>@ViewBag.Collect.checkbox3_visible</th>
+             }
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || ViewBag.Collect.NameAuthor == User.Identity.Name))
+             {
+                <th>Управление</th>
+             }
+
+
+        </tr>
+        @foreach (var item in ViewBag.Items)
+         {
+
+            <tr>
+                <th>
+                    @item.NameItem
+                </th>
+                <th>
+                    @item.Tags
+                </th>
+                @if (ViewBag.Collect.integer1_visible != null)
+                 {
+                    <th>@item.integer1</th>
+                 }
+                @if (ViewBag.Collect.integer2_visible != null)
+                 {
+                    <th>@item.integer2</th>
+                 }
+                @if (ViewBag.Collect.integer3_visible != null)
+                 {
+                    <th>@item.integer3</th>
+                 }
+
+                @if (ViewBag.Collect.string1_visible != null)
+                 {
+                    <th>@item.string1</th>
+                 }
+                @if (ViewBag.Collect.string2_visible != null)
+                 {
+                    <th>@item.string2</th>
+                 }
+                @if (ViewBag.Collect.string3_visible != null)
+                 {
+                    <th>@item.string3</th>
+                 }
+
+                @if (ViewBag.Collect.text1_visible != null)
+                 {
+                    <th>@Markdown.ParseHtmlString(item.text1)</th>
+                 }
+                @if (ViewBag.Collect.text2_visible != null)
+                 {
+                    <th>@Markdown.ParseHtmlString(item.text2)</th>
+                 }
+                @if (ViewBag.Collect.text3_visible != null)
+                 {
+                    <th>@Markdown.ParseHtmlString(item.text3)</th>
+                 }
+
+                @if (ViewBag.Collect.data1_visible != null)
+                 {
+                    <th>@item.data1.ToString("dd/MM/yyyy") </th>
+                 }
+                @if (ViewBag.Collect.data2_visible != null)
+                 {
+                    <th>@item.data2.Date</th>
+                 }
+                @if (ViewBag.Collect.data3_visible != null)
+                 {
+                    <th>@item.data3.Date</th>
+                 }
+
+                @if (ViewBag.Collect.checkbox1_visible != null)
+                 {
+                    string str = (item.checkbox1 == true ? "да" : "нет");
+                    <th>@str</th>
+                 }
+                @if (ViewBag.Collect.checkbox2_visible != null)
+                 {
+                    string str = (item.checkbox1 == true ? "да" : "нет");
+                    <th>@str</th>
+                 }
+                @if (ViewBag.Collect.checkbox3_visible != null)
+                 {
+                    string str = (item.checkbox1 == true ? "да" : "нет");
+                    <th>@str</th>
+                 }
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || ViewBag.Collect.NameAuthor == User.Identity.Name))
+                 {
+                    <th>
+                        <button class="btn btn-sm btn-danger" asp-action="DeleteItem" asp-controller="Home" asp-route-Id="@item.Id">Удалить</button>
+                        <p></p>
+                        <button class="btn btn-sm btn-primary" asp-action="EditItemView" asp-controller="Home" asp-route-Id="@item.Id">Редактировать</button>
+                    </th>
+                 }
+
+            </tr>
+         }
+    </table>
+</form>
+
+@*@Model.NameItem*@

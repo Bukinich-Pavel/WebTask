@@ -1,0 +1,137 @@
+﻿@model WebTask.Models.Collect
+<script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script src="~/scripts/jquery.filedrop.js"></script>
+<link href="~/css/StyleForDropIMG.css" rel="stylesheet" />
+
+<p></p>
+<form asp-controller="Home" asp-action="EditCollect">
+    <div id="dropArea">
+        Переместите сюда фото, если хотите изменить.
+    </div>
+    <div hidden class="navbar-brand">
+        <label>Photo</label><br />
+        <input class="form-control" asp-for="Photo" />
+    </div>
+    <div hidden class="navbar-brand">
+        <label>Id</label><br />
+        <input class="form-control" asp-for="Id" />
+    </div>
+    <div hidden class="navbar-brand">
+        <label>NameAuthor</label><br />
+        <input class="form-control" asp-for="NameAuthor" />
+    </div>
+    <div class="navbar-brand">
+        <label>Имя коллекции</label><br />
+        <input class="form-control" asp-for="NameCollection" />
+    </div>
+    <div class="navbar-brand">
+        <label>Краткое описание</label><br />
+        <textarea class="form-control" asp-for="ShortDescription" cols="50"></textarea>
+    </div>
+    <div class="navbar-brand">
+        <label>Тема</label><br />
+        <input class="form-control" asp-for="Topic" />
+    </div>
+    <p></p>
+    <div class="navbar-brand">
+        @if (Model.integer1_visible != null)
+        {
+            <label>Дополнительный числовой параметр</label> <input class="form-control" asp-for="integer1_visible" /> <br />
+        }
+        @if (Model.integer2_visible != null)
+        {
+            <label>Дополнительный числовой параметр</label> <input class="form-control" asp-for="integer2_visible" /> <br />
+        }
+        @if (Model.integer3_visible != null)
+        {
+            <label>Дополнительный числовой параметр</label> <input class="form-control" asp-for="integer3_visible" /> <br />
+        }
+
+        @if (Model.string1_visible != null)
+        {
+            <label>Дополнительный строковой параметр</label> <input class="form-control" asp-for="string1_visible" /> <br />
+        }
+        @if (Model.string2_visible != null)
+        {
+            <label>Дополнительный строковой параметр</label> <input class="form-control" asp-for="string2_visible" /> <br />
+        }
+        @if (Model.string3_visible != null)
+        {
+            <label>Дополнительный строковой параметр</label> <input class="form-control" asp-for="string3_visible" /> <br />
+        }
+        @if (Model.text1_visible != null)
+        {
+            <label>Дополнительный текстовый параметр</label> <input class="form-control" asp-for="text1_visible" /> <br />
+        }
+        @if (Model.text2_visible != null)
+        {
+            <label>Дополнительный текстовый параметр</label> <input class="form-control" asp-for="text2_visible" /> <br />
+        }
+        @if (Model.text3_visible != null)
+        {
+            <label>Дополнительный текстовый параметр</label> <input class="form-control" asp-for="text3_visible" /> <br />
+        }
+        @if (Model.data1_visible != null)
+        {
+            <label>Дополнительный параметр "Дата"</label> <input class="form-control" asp-for="data1_visible" /> <br />
+        }
+        @if (Model.data2_visible != null)
+        {
+            <label>Дополнительный параметр "Дата"</label> <input class="form-control" asp-for="data2_visible" /> <br />
+        }
+        @if (Model.data3_visible != null)
+        {
+            <label>Дополнительный параметр "Дата"</label> <input class="form-control" asp-for="data3_visible" /> <br />
+        }
+        @if (Model.checkbox1_visible != null)
+        {
+            <label>Дополнительный параметр "Yes/No"</label> <input class="form-control" asp-for="checkbox1_visible" /> <br />
+        }
+        @if (Model.checkbox2_visible != null)
+        {
+            <label>Дополнительный параметр "Yes/No"</label> <input class="form-control" asp-for="checkbox2_visible" /> <br />
+        }
+        @if (Model.checkbox3_visible != null)
+        {
+            <label>Дополнительный параметр "Yes/No"</label> <input class="form-control" asp-for="checkbox3_visible" /> <br />
+        }
+    </div>
+
+    <div class="navbar-brand">
+        <input type="submit" value="Сохранить" class="btn btn-sm btn-primary" />
+    </div>
+
+</form>
+<script>
+        $(function () {
+        $('#dropArea').filedrop({
+            url: '@Url.Action("UploadedPhoto")',
+            allowedfiletypes: ['image/jpeg', 'image/png'],
+            allowedfileextensions: ['.jpg', '.jpeg', '.png'],
+            paramname: 'file',
+            maxfiles: 1,
+            maxfilesize: 25,
+            dragOver: function () {
+                $('#dropArea').addClass('active-drop');
+            },
+            dragLeave: function () {
+                $('#dropArea').removeClass('active-drop');
+            },
+            drop: function () {
+                $('#dropArea').removeClass('active-drop');
+            },
+            afterAll: function (e) {
+
+                //    $('#dropArea').html('file uploaded successfully');
+            },
+            uploadFinished: function (i, file, response, time) {
+                $('#dropArea').addClass('ok-drop');
+                $('#dropArea').html('Файл успешно добавлен');
+                //    $('#uploadedFiles').append(file.name + '<br />')
+            }
+        })
+        })
+
+</script>
+
+@*<script src="~/scripts/scriptDropIMG.js"></script>*@
