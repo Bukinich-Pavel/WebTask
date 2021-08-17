@@ -62,9 +62,17 @@
               "target": "Package",
               "version": "[5.0.8, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Westwind.AspNetCore.Markdown": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "jQuery.UI.Combined": {
+              "target": "Package",
+              "version": "[1.12.1, )"
             },
             "jQuery.filedrop": {
               "target": "Package",

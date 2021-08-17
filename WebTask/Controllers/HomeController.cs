@@ -2,15 +2,13 @@
 using WebTask.Models;
 using WebTask.Interfaces;
 using System.Collections.Generic;
-using System.IO;
-using System.Web;
 using System.Threading.Tasks;
 using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
 using Microsoft.AspNetCore.Http;
-using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System;
 
 namespace WebTask.Controllers
 {
@@ -21,6 +19,8 @@ namespace WebTask.Controllers
         private ApplicationContext db;
 
         static string urlPhoto;
+
+        protected string MyProperty { get { return "your value"; } }
 
         public HomeController(ICollectData collectData, IItemData itemData, ApplicationContext context)
         {
@@ -36,6 +36,9 @@ namespace WebTask.Controllers
         /// <returns></returns>
         public IActionResult Index()
         {
+
+            ViewBag.var1 = db.items.Select(c => c.Tags);
+
             return View(collectData.GetCollect());
         }
 
@@ -135,6 +138,16 @@ namespace WebTask.Controllers
 
         #region Items
 
+        public ActionResult AutocompleteSearch(string term)
+        {
+            var models = db.items.Where(a => a.Tags.Contains(term))
+                            .Select(a => new { value = a.Tags })
+                            .Distinct();
+
+            return Json(models);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddItem(int? id)
         {
@@ -215,5 +228,23 @@ namespace WebTask.Controllers
             urlPhoto = uploadResult.Url.ToString();
         }
 
+
+        #region private method
+
+        private string GetStringTags()
+        {
+            string str = "";
+            var tags = db.items.Select(c => c.Tags);
+            foreach (var tag in tags)
+            {
+                //{ text: "Lorem", weight: 13, link: 'http://github.com/mistic100/jQCloud' },
+                str += $"{{ text: \"{tag}\", weight: 10, link: 'http://github.com/mistic100/jQCloud' }}, ";
+                //str += $"\"{tag}\", ";
+            }
+            return str;
+        }
+
+
+        #endregion
     }
 }

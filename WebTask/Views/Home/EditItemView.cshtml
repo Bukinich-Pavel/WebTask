@@ -3,6 +3,10 @@
 
 <form asp-controller="Home" asp-action="EditItem">
     <div hidden class="navbar-brand">
+        <label>Id</label><br />
+        <input class="form-control" asp-for="Id"/>
+    </div>
+    <div hidden class="navbar-brand">
         <label>Id коллекции</label><br />
         <input class="form-control" asp-for="CollectId"/>
     </div>
