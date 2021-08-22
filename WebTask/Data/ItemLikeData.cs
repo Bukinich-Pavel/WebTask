@@ -7,23 +7,24 @@ using WebTask.Models;
 
 namespace WebTask.Data
 {
-    public class ItemData : IItemData
+    public class ItemLikeData : IItemLikeData
     {
         private readonly ApplicationContext context;
 
-        public ItemData(ApplicationContext context)
+        public ItemLikeData(ApplicationContext context)
         {
             this.context = context;
         }
-        public void AddItem(Item item)
+
+        public void AddLike(ItemLike like)
         {
-            context.items.Add(item);
+            context.itemsLike.Add(like);
             context.SaveChanges();
         }
 
-        public IEnumerable<Item> GetItem()
+        public IEnumerable<ItemLike> GetLike()
         {
-            return this.context.items;
+            return this.context.itemsLike;
         }
     }
 }

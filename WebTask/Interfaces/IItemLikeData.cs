@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace WebTask.Interfaces
 {
-    public interface IItemData
+    public interface IItemLikeData
     {
-        IEnumerable<Item> GetItem();
-        void AddItem(Item item);
+        IEnumerable<ItemLike> GetLike();
+        void AddLike(ItemLike like);
+
 
     }
 }

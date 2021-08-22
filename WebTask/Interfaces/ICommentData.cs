@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace WebTask.Interfaces
 {
-    public interface IItemData
+    public interface ICommentData
     {
-        IEnumerable<Item> GetItem();
-        void AddItem(Item item);
+        IEnumerable<Comment> GetComment();
+        void AddComment(Comment comment);
 
     }
 }

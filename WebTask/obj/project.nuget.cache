@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sRS5c1mzWVdJWDDYuW/BKf0wxzRGo+5q0MQrDrLQFJJ1zvPK/5lXpLG0Q55P1TPrHia2CgnfVKiEazuS2eHAXw==",
+  "dgSpecHash": "7nzXY6cf8DeBA2cW1ASPhB2JZw7p75pTBgNa3usJrizzODEM2Se6IcZF+oUGmeEpwWFgUJY8NoeeItZInYJ9LA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ксения\\source\\repos\\WebTask\\WebTask\\WebTask.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Ксения\\.nuget\\packages\\jquery.ui.combined\\1.12.1\\jquery.ui.combined.1.12.1.nupkg.sha512",
     "C:\\Users\\Ксения\\.nuget\\packages\\markdig\\0.24.0\\markdig.0.24.0.nupkg.sha512",
     "C:\\Users\\Ксения\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.8\\microsoft.aspnetcore.authentication.facebook.5.0.8.nupkg.sha512",
+    "C:\\Users\\Ксения\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.9\\microsoft.aspnetcore.authentication.google.5.0.9.nupkg.sha512",
     "C:\\Users\\Ксения\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",
     "C:\\Users\\Ксения\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.8\\microsoft.aspnetcore.cryptography.keyderivation.5.0.8.nupkg.sha512",
     "C:\\Users\\Ксения\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -87,3 +87,7 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\Items.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\EditItemView.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\WebTask.csprojAssemblyReference.cache
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\ItemsAll.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Home\CommentsView.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Account\GoogleResponse.cshtml.g.cs

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,6 +31,27 @@ namespace WebTask.Models
         public Collect сollect { get; set; }
 
 
+    }
+
+    public class ItemComparer : IEqualityComparer<Item>
+    {
+        public bool Equals(Item x, Item y)
+        {
+            //Check whether the compared objects reference the same data.
+            if (Object.ReferenceEquals(x, y)) return true;
+
+            //Check whether any of the compared objects is null.
+            if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                return false;
+
+            //Check whether the products' properties are equal.
+            return x.Tags == y.Tags;
+        }
+
+        public int GetHashCode([DisallowNull] Item obj)
+        {
+            return 0;
+        }
 
     }
 }

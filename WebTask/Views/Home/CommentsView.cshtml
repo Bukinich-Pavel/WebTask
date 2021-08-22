@@ -1,0 +1,25 @@
+﻿<h4>Комментарии айтема: @ViewBag.Item.NameItem</h4>
+<p></p>
+<table class="table table-striped">
+    @foreach (var comment in ViewBag.Comments)
+    {
+        <tr>
+            <th>
+                <h6>@comment.UserName &nbsp&nbsp&nbsp @comment.DateTimeComment</h6>
+                <p></p>
+                @comment.CommentText
+            </th>
+        </tr>
+    }
+</table>
+@{ if (User.Identity.IsAuthenticated)
+    {
+        <form asp-controller="Home" asp-action="AddComment" asp-route-itemName="@ViewBag.Item.NameItem">
+            <input hidden type="text" name="ItemId" value="@ViewBag.Item.Id" />
+            <input type="text" class="form-control" name="CommentText" />
+            <input type="submit" class="btn btn-sm btn-primary" />
+        </form>
+    }
+}
+
+
