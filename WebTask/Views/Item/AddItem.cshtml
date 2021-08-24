@@ -1,7 +1,7 @@
 ﻿@model WebTask.Models.Collect
 
 
-<form asp-controller="Home" asp-action="AddItemInCollect">
+<form asp-controller="Item" asp-action="AddItemInCollect">
     <div hidden class="navbar-brand">
         <label>Id коллекции</label><br />
         <input class="form-control" name="CollectId" value="@Model.Id" />
@@ -16,8 +16,7 @@
     </div>
     <div class="navbar-brand">
         <label>Теги</label><br />
-        @*<textarea class="form-control" name="Tags"></textarea>*@
-        <input class="form-control" type="text" name="Tags" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' />
+        <input class="form-control" type="text" name="Tags" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Item")' />
     </div>
     <div class="navbar-brand">
         @if (Model.integer1_visible != null)

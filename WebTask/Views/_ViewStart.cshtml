@@ -7,7 +7,7 @@
         <form asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
             <a class="navbar-brand" asp-action="Index" asp-controller="Home">   В начало</a>
             <a class="navbar-brand" asp-action="Index" asp-controller="Roles">Список пользователей</a>
-            <a class="navbar-brand" asp-action="Personal" asp-controller="Home">@User.Identity.Name</a>
+            <a class="navbar-brand" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
             <a class="navbar-brand" href="#" onclick="document.getElementById('logoutform').submit()">Выход</a>
         </form>
         <form class="d-flex justify-content-around form-inline my-2 my-lg-0" method="post">
@@ -23,7 +23,7 @@ else if (User.Identity.IsAuthenticated)
 
         <form method="post" asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
             <a class="navbar-brand" asp-action="Index" asp-controller="Home">В начало</a>
-            <a class="navbar-brand" asp-action="Personal" asp-controller="Home">@User.Identity.Name</a>
+            <a class="navbar-brand" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
             <a class="navbar-brand" href="#" onclick="document.getElementById('logoutform').submit()">Выход</a>
         </form>
         <form class="d-flex justify-content-around form-inline my-2 my-lg-0" method="post">

@@ -63,7 +63,7 @@
         var words = new Array();
         @foreach (var item in ViewBag.var1)
          {
-             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Home/ItemsAll/" + $("#@item.Id").val()  })
+             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
             $('#demo').jQCloud(words, {

@@ -53,6 +53,16 @@ namespace WebTask
                     opts.ClientSecret = "gUCeBaIHLxcnzdYQ2E0rO3Nd";
                     opts.SignInScheme = IdentityConstants.ExternalScheme;
                 });
+            //services.AddAuthentication()
+            //.AddFacebook(options =>
+            //{
+            //    options.AppId = Configuration["784223934101-c5dqf3g257c3buh0kkb2eav5qd54msej.apps.googleusercontent.com"];
+            //    options.AppSecret = Configuration["MeIiguYk1wHVGTCgy87P3O04"];
+            //}).AddGoogle(options =>
+            //{
+            //    options.ClientId = Configuration["715582416158-4u5fpf4j77unl7dmavd42vcsecibnfff.apps.googleusercontent.com"];
+            //    options.ClientSecret = Configuration["gUCeBaIHLxcnzdYQ2E0rO3Nd"];
+            //});
 
 
             services.AddMarkdown();

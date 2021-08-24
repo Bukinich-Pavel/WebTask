@@ -165,9 +165,9 @@
                 @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || ViewBag.Collect.NameAuthor == User.Identity.Name))
                 {
                     <th>
-                        <button class="btn btn-sm btn-danger" asp-action="DeleteItem" asp-controller="Home" asp-route-Id="@item.Id">Удалить</button>
+                        <button class="btn btn-sm btn-danger" asp-action="DeleteItem" asp-controller="Item" asp-route-Id="@item.Id">Удалить</button>
                         <p></p>
-                        <button class="btn btn-sm btn-primary" asp-action="EditItemView" asp-controller="Home" asp-route-Id="@item.Id">Редактировать</button>
+                        <button class="btn btn-sm btn-primary" asp-action="EditItemView" asp-controller="Item" asp-route-Id="@item.Id">Редактировать</button>
                     </th>
                 }
 
@@ -189,7 +189,7 @@
         var words = new Array();
         @foreach (var item in ViewBag.itemsforCloud)
          {
-             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Home/ItemsAll/" + $("#@item.Id").val()  })
+             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
             $('#demo').jQCloud(words, {

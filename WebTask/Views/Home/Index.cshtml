@@ -22,28 +22,27 @@
             }
         </tr>
         @foreach (Collect collect in Model)
-        {
+         {
             <tr>
-                @{string str = collect.Photo == null ? "https://res.cloudinary.com/boola98/image/upload/v1628792596/no-photo_oixf78.png" : collect.Photo;}
                 <th>
-                    <a asp-action="Items" asp-route-id="@collect.Id"><img src="@str" height="150" alt="Картинка коллекции"></a>
+                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id"><img src="@collect.Photo" height="150" alt="Картинка коллекции"></a>
                 </th>
                 <th>
-                    <a asp-action="Items" asp-route-id="@collect.Id">@collect.NameCollection</a>
+                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">@collect.NameCollection</a>
                 </th>
                 <th>@collect.NameAuthor</th>
                 <th>@Markdown.ParseHtmlString(collect.ShortDescription)</th>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                {
+                 {
                     <th>
                         <button class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Home" asp-route-Id="@collect.Id">Удалить</button>
                         <p></p>
                         <button class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Home" asp-route-Id="@collect.Id">Редактировать</button>
                     </th>
-                }
+                 }
 
             </tr>
-        }
+         }
     </table>
 </form>
 
@@ -52,14 +51,14 @@
 
 @foreach (var item in ViewBag.itemsforCloud)
 {
-    <input type="hidden" value="@item.Tags" id="@item.Id" />
+    <input type="hidden" value="@item.Tags" id="@item.Id"/>
 }
 
 <script type="text/javascript" charset="UTF-16">
         var words = new Array();
         @foreach (var item in ViewBag.itemsforCloud)
          {
-             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Home/ItemsAll/" + $("#@item.Id").val()  })
+             @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
             $('#demo').jQCloud(words, {
