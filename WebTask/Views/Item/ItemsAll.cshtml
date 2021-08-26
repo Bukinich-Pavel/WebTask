@@ -25,7 +25,7 @@
                 <th>
                     @{if (User.Identity.IsAuthenticated)
                         {
-                            string str = "";
+                            string str = "like";
                             foreach (var like in ViewBag.like)
                             {
                                 if (like.ItemId == item.Id)

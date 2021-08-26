@@ -81,6 +81,14 @@ namespace WebTask.Controllers
             return View();
         }
 
+        public IActionResult AddComment(Comment comment)
+        {
+            comment.DateTimeComment = DateTime.Now;
+            comment.UserName = User.Identity.Name;
+            commentData.AddComment(comment);
+            return RedirectToAction("CommentsView", "Home", new { itemId = comment.ItemId });
+
+        }
     }
 
     static class StatMethod
