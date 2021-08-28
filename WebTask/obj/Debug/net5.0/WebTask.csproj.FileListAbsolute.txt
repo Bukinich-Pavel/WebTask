@@ -91,3 +91,4 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Item\ItemsAll.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Item\AddItem.cshtml.g.cs
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Debug\net5.0\Razor\Views\Item\EditItemView.cshtml.g.cs
+C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Debug\net5.0\libman.json

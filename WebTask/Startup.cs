@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using WebTask.Data;
 using Westwind.AspNetCore.Markdown;
 using CloudinaryDotNet;
+using WebTask.SignalR;
 
 namespace WebTask
 {
@@ -23,6 +24,8 @@ namespace WebTask
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR(); // подключение SignalR
+
             services.AddDbContext<WebTask.Models.ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -41,11 +44,7 @@ namespace WebTask
             services.AddTransient<IItemData, ItemData>();
             services.AddTransient<IItemLikeData, ItemLikeData>();
             services.AddTransient<ICommentData, CommentData>();
-            //services.AddAuthentication().AddFacebook(facebookOptions =>
-            //{
-            //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-            //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-            //});
+
             services.AddAuthentication()
                 .AddGoogle(opts =>
                 {
@@ -71,7 +70,9 @@ namespace WebTask
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage(); // SignalR
+
+            app.UseDefaultFiles();
 
             app.UseHttpsRedirection();
 
@@ -85,6 +86,7 @@ namespace WebTask
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub>("/chat"); // SignalR
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

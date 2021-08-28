@@ -120,6 +120,10 @@ namespace WebTask.Controllers
         [HttpPost]
         public async Task<IActionResult> EditItem(Item item)
         {
+            if (item.Tags == null)
+            {
+                return LocalRedirect($"/Item/Items/{item.CollectId.ToString()}");
+            }
             db.items.Update(item);
             await db.SaveChangesAsync();
 

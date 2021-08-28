@@ -45,9 +45,9 @@ namespace WebTask.Controllers
 
         public IActionResult LikeItem(string tag, int id)
         {
-            var itemsLike = db.itemsLike.Where(p => p.ItemId == id && p.NameUser == User.Identity.Name);
+            var itemsLike = db.itemsLike.Where(p => p.ItemId == id && p.NameUser == User.Identity.Name).ToList<ItemLike>();
             ItemLike itemLike = null;
-            foreach (var item in itemsLike.ToList<ItemLike>())
+            foreach (var item in itemsLike)
             {
                 itemLike = item;
             }
@@ -63,7 +63,7 @@ namespace WebTask.Controllers
                 db.SaveChanges();
 
             }
-
+            
             return RedirectToAction("ItemsAll", "Item", new { Id = tag });
         }
 
@@ -86,8 +86,8 @@ namespace WebTask.Controllers
             comment.DateTimeComment = DateTime.Now;
             comment.UserName = User.Identity.Name;
             commentData.AddComment(comment);
-            return RedirectToAction("CommentsView", "Home", new { itemId = comment.ItemId });
-
+            return new NoContentResult();
+            //return RedirectToAction("CommentsView", "Home", new { itemId = comment.ItemId });
         }
     }
 
@@ -105,6 +105,7 @@ namespace WebTask.Controllers
 
             foreach (var item in itemsList)
             {
+                if (item.Tags == null) continue;
                 if (!item.Tags.Contains(' '))
                 {
                     itemsListMax.Add(item);

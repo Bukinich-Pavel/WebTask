@@ -28,7 +28,7 @@ namespace WebTask.Models
         public bool checkbox3 { get; set; }
 
         public int? CollectId { get; set; }
-        public Collect сollect { get; set; }
+        //public Collect сollect { get; set; }
 
 
     }
