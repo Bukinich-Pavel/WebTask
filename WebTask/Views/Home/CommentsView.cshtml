@@ -5,32 +5,16 @@
     {
         <tr>
             <th>
-                <h6>@comment.UserName &nbsp&nbsp&nbsp @comment.DateTimeComment</h6>
-                <p></p>
-                @comment.CommentText
+                <div style="display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; padding: 0 10px;">
+                    <h6>@comment.UserName</h6>
+                    <p>@comment.DateTimeComment</p>
+                </div>
+                <p>@comment.CommentText</p>
             </th>
         </tr>
     }
 </table>
-<table class="table table-striped">
-    <tr>
-        <th>
-            <div id="chatroom"></div>
-        </th>
-    </tr>
 
-</table>
-    @*<div id="inputForm">
-            @{ if (User.Identity.IsAuthenticated)
-                {
-                    <form asp-controller="Home" asp-action="AddComment" asp-route-itemName="@ViewBag.Item.NameItem">
-                        <input hidden type="text" name="ItemId" value="@ViewBag.Item.Id" />
-                        <input type="text" id="message" class="form-control" name="CommentText" />
-                        <input type="submit" id="sendBtn" class="btn btn-sm btn-primary" />
-                    </form>
-                }
-            }
-        </div>*@
     @{string str = User.Identity.IsAuthenticated ? "" : "hidden";}
     <form asp-controller="Home" asp-action="AddComment" asp-route-itemName="@ViewBag.Item.NameItem">
         <div id="inputForm">
@@ -41,29 +25,7 @@
         </div>
     </form>
 
-    <script src="~/scripts/microsoft/signalr/dist/browser/signalr.min.js"></script>
-    <script>
-        const hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl("/chat")
-            .build();
 
 
-        hubConnection.on("Send", function (data) {
 
-            let elem = document.createElement("p");
-            elem.appendChild(document.createTextNode(data));
-            let firstElem = document.getElementById("chatroom").firstChild;
-            document.getElementById("chatroom").insertBefore(elem, firstElem);
-
-        });
-
-        document.getElementById("sendBtn").addEventListener("click", function (e) {
-            let message = document.getElementById("message").value;
-
-            hubConnection.invoke("Send", message);
-        });
-
-
-        hubConnection.start();
-    </script>
 

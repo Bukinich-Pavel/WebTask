@@ -26,6 +26,8 @@ namespace WebTask.Controllers
             db = context;
         }
 
+
+        [HttpGet]
         public IActionResult Personal()
         {
             ViewBag.itemsforCloud = StatMethod.ReturnUniqueTags(db);
@@ -57,7 +59,6 @@ namespace WebTask.Controllers
         {
             if (id != null)
             {
-
                 Collect collect = new Collect { Id = id.Value };
                 db.Entry(collect).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
@@ -77,7 +78,7 @@ namespace WebTask.Controllers
                     return View(collect);
             }
             return NotFound();
-        }
+        } //open view
 
         [HttpPost]
         public async Task<IActionResult> EditCollect(Collect collect)

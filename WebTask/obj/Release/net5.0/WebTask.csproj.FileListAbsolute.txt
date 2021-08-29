@@ -91,3 +91,4 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\WebTask.dl
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\ref\WebTask.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\WebTask.pdb
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\WebTask.genruntimeconfig.cache
+C:\Users\Ксения\source\repos\WebTask\WebTask\bin\Release\net5.0\libman.json

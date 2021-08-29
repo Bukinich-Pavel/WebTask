@@ -12,25 +12,25 @@ namespace WebTask.Controllers
 {
     public class RolesController : Controller
     {
-        RoleManager<IdentityRole> _roleManager;
-        UserManager<User> _userManager;
+        RoleManager<IdentityRole> roleManager;
+        UserManager<User> userManager;
         public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
         {
-            _roleManager = roleManager;
-            _userManager = userManager;
+            this.roleManager = roleManager;
+            this.userManager = userManager;
         }
 
-        public IActionResult Index() => View(_userManager.Users.ToList());
+        public IActionResult Index() => View(userManager.Users.ToList());
 
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
-            User user = await _userManager.FindByIdAsync(userId);
+            User user = await userManager.FindByIdAsync(userId);
             if (user != null)
             {
                 // получем список ролей пользователя
-                var userRoles = await _userManager.GetRolesAsync(user);
-                var allRoles = _roleManager.Roles.ToList();
+                var userRoles = await userManager.GetRolesAsync(user);
+                var allRoles = roleManager.Roles.ToList();
                 ChangeRoleViewModel model = new ChangeRoleViewModel
                 {
                     UserId = user.Id,
@@ -48,21 +48,21 @@ namespace WebTask.Controllers
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {
             // получаем пользователя
-            User user = await _userManager.FindByIdAsync(userId);
+            User user = await userManager.FindByIdAsync(userId);
             if (user != null)
             {
                 // получем список ролей пользователя
-                var userRoles = await _userManager.GetRolesAsync(user);
+                var userRoles = await userManager.GetRolesAsync(user);
                 // получаем все роли
-                var allRoles = _roleManager.Roles.ToList();
+                var allRoles = roleManager.Roles.ToList();
                 // получаем список ролей, которые были добавлены
                 var addedRoles = roles.Except(userRoles);
                 // получаем роли, которые были удалены
                 var removedRoles = userRoles.Except(roles);
 
-                await _userManager.AddToRolesAsync(user, addedRoles);
+                await userManager.AddToRolesAsync(user, addedRoles);
 
-                await _userManager.RemoveFromRolesAsync(user, removedRoles);
+                await userManager.RemoveFromRolesAsync(user, removedRoles);
 
                 return RedirectToAction("Index");
             }
@@ -73,10 +73,10 @@ namespace WebTask.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(string id)
         {
-            User user = await _userManager.FindByIdAsync(id);
+            User user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
-                IdentityResult result = await _userManager.DeleteAsync(user);
+                IdentityResult result = await userManager.DeleteAsync(user);
             }
             return RedirectToAction("Index");
         }
