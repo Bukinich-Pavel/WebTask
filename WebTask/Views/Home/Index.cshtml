@@ -4,54 +4,36 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="demo"></div>
-<button type="button" class="btn btn-default">
-    <img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%2318AFFF'/%3e%3cstop offset='100%25' stop-color='%230062DF'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z'/%3e%3c/g%3e%3c/svg%3e" alt="Like" />
-</button>
-<form asp-action="DeleteCollect" asp-controller="Home" method="post">
-
-    <table class="table table-striped">
-        <tr>
-            <th>Фото</th>
-            <th>Имя коллекции</th>
-            <th>Имя автора</th>
-            <th>Краткое описание</th>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-            {
-                <th>Управление</th>
-            }
-        </tr>
+<div id="tag-cloud" class="m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
+<section class="p-5">
+    <form class="collections-grid" asp-action="DeleteCollect" asp-controller="Home" method="post">
         @foreach (Collect collect in Model)
-         {
-            <tr>
-                <th>
-                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id"><img src="@collect.Photo" height="150" alt="Картинка коллекции"></a>
-                </th>
-                <th>
-                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">@collect.NameCollection</a>
-                </th>
-                <th>@collect.NameAuthor</th>
-                <th>@Markdown.ParseHtmlString(collect.ShortDescription)</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                 {
-                    <th>
-                        <button class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Collect" asp-route-Id="@collect.Id">Удалить</button>
-                        <p></p>
-                        <button class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Collect" asp-route-Id="@collect.Id">Редактировать</button>
-                    </th>
-                 }
-
-            </tr>
-         }
-    </table>
-</form>
+        {
+            <a class="card shadow decoration-none text-dark" asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">
+                <img src="@collect.Photo" alt="Card Picture" />
+                <div class="card-body">
+                    <h5 class="card-title h5">@collect.NameCollection</h5>
+                    <p class="card-text mb-3">@collect.NameAuthor</p>
+                    <p class="card-text">@Markdown.ParseHtmlString(collect.ShortDescription)</p>
+                </div>
+                <div class="d-flex justify-content-around align-items-center pb-3">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <button type="submit" class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Collect" asp-route-Id="@collect.Id">Удалить</button>
+                        <button type="submit" class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Collect" asp-route-Id="@collect.Id">Редактировать</button>
+                    }
+                </div>
+            </a>
+        }
+    </form>
+</section>
 
 <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
 <script src="~/scripts/jqcloud.min.js"></script>
 
 @foreach (var item in ViewBag.itemsforCloud)
 {
-    <input type="hidden" value="@item.Tags" id="@item.Id"/>
+    <input type="hidden" value="@item.Tags" id="@item.Id" />
 }
 
 <script type="text/javascript" charset="UTF-16">
@@ -61,8 +43,6 @@
              @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
-            $('#demo').jQCloud(words, {
-                    height: 250
-            });
-        });
+            $('#tag-cloud').jQCloud(words);
+    });
 </script>

@@ -28,7 +28,7 @@ namespace WebTask.Controllers
 
         public async Task<IActionResult> Items(int Id)
         {
-            ViewBag.itemsforCloud = StatMethod.ReturnUniqueTags(db);
+            ViewBag.UniqueTags = StatMethod.ReturnUniqueTags(db);
 
             ViewBag.Collect = await db.collects.FirstOrDefaultAsync(p => p.Id == Id);
 
@@ -40,7 +40,7 @@ namespace WebTask.Controllers
 
         public IActionResult ItemsAll(string Id)
         {
-            ViewBag.var1 = StatMethod.ReturnUniqueTags(db);
+            ViewBag.UniqueTags = StatMethod.ReturnUniqueTags(db);
             ViewBag.Tag = Id;
             ViewBag.items = db.items.Where(p => p.Tags.Contains(Id));
             ViewBag.like = db.itemsLike.Where(p => p.NameUser == User.Identity.Name).ToList<ItemLike>();
@@ -57,7 +57,7 @@ namespace WebTask.Controllers
                     return View(collect);
             }
             return NotFound();
-        }
+        } //open view
 
         public ActionResult AutocompleteSearch(string term)
         {
@@ -83,16 +83,11 @@ namespace WebTask.Controllers
         {
             if (id != null)
             {
-                var items = db.items.Where(p => p.Id == id);
-                Item item = new Item();
-                foreach (var i in items)
-                {
-                    item = i;
-                }
-                //Item item = new Item { Id = id.Value };
+                var item = await db.items.FirstOrDefaultAsync(p => p.Id == id);
+
                 db.Entry(item).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
-                //return LocalRedirect($"/Item/Items/{item.CollectId.ToString()}");
+
                 return RedirectToAction("Items", "Item", new { Id = item.CollectId });
 
             }
@@ -115,7 +110,7 @@ namespace WebTask.Controllers
                     return View(item);
             }
             return NotFound();
-        }
+        } //open view
 
         [HttpPost]
         public async Task<IActionResult> EditItem(Item item)

@@ -8,15 +8,16 @@ namespace WebTask.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Не указан электронный адрес")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Не указан пароль")]
         [Display(Name = "Запомнить?")]
         public bool RememberMe { get; set; }
 

@@ -54,14 +54,14 @@
 <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
 <script src="~/scripts/jqcloud.min.js"></script>
 
-@foreach (var item in ViewBag.var1)
+@foreach (var item in ViewBag.UniqueTags)
 {
     <input type="hidden" value="@item.Tags" id="@item.Id" />
 }
 
 <script type="text/javascript" charset="UTF-16">
         var words = new Array();
-        @foreach (var item in ViewBag.var1)
+        @foreach (var item in ViewBag.UniqueTags)
          {
              @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
