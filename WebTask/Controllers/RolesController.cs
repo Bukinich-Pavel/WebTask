@@ -53,8 +53,6 @@ namespace WebTask.Controllers
             {
                 // получем список ролей пользователя
                 var userRoles = await userManager.GetRolesAsync(user);
-                // получаем все роли
-                var allRoles = roleManager.Roles.ToList();
                 // получаем список ролей, которые были добавлены
                 var addedRoles = roles.Except(userRoles);
                 // получаем роли, которые были удалены

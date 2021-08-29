@@ -12,8 +12,8 @@ namespace WebTask.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
+        private readonly UserManager<User> userManager; //user management
+        private readonly SignInManager<User> signInManager; //user authentication and setting or deleting cookies
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
@@ -33,7 +33,7 @@ namespace WebTask.Controllers
             if (ModelState.IsValid)
             {
                 User user = new User { Email = model.Email, UserName = model.Email};
-                // добавляем пользователя
+
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -64,8 +64,7 @@ namespace WebTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result =
-                    await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     // проверяем, принадлежит ли URL приложению

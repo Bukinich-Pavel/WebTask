@@ -26,17 +26,17 @@ namespace WebTask
         {
             services.AddSignalR(); // подключение SignalR
 
-            services.AddDbContext<WebTask.Models.ApplicationContext>(options =>
+            services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>(opts => {
-                opts.User.RequireUniqueEmail = true;    // уникальный email
-                opts.User.AllowedUserNameCharacters = ".@abcdefghijklmnopqrstuvwxyz1234567890"; // допустимые символы
-                opts.Password.RequiredLength = 5;   // минимальная длина
-                opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
-                opts.Password.RequireLowercase = false; // требуются ли символы в нижнем регистре
-                opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
-                opts.Password.RequireDigit = false; // требуются ли цифры
+                opts.User.RequireUniqueEmail = true;    
+                opts.User.AllowedUserNameCharacters = ".@abcdefghijklmnopqrstuvwxyz1234567890"; 
+                opts.Password.RequiredLength = 5;   
+                opts.Password.RequireNonAlphanumeric = false;   
+                opts.Password.RequireLowercase = false; 
+                opts.Password.RequireUppercase = false; 
+                opts.Password.RequireDigit = false; 
             }).AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddControllersWithViews();
