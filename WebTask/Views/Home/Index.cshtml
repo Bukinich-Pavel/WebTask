@@ -4,51 +4,36 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="demo"></div>
-<form asp-action="DeleteCollect" asp-controller="Home" method="post">
-
-    <table class="table table-striped">
-        <tr>
-            <th>Фото</th>
-            <th>Имя коллекции</th>
-            <th>Имя автора</th>
-            <th>Краткое описание</th>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-            {
-                <th>Управление</th>
-            }
-        </tr>
+<div id="tag-cloud" class="m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
+<section class="p-5">
+    <form class="collections-grid" asp-action="DeleteCollect" asp-controller="Home" method="post">
         @foreach (Collect collect in Model)
-         {
-            <tr>
-                <th>
-                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id"><img src="@collect.Photo" height="150" alt="Картинка коллекции"></a>
-                </th>
-                <th>
-                    <a asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">@collect.NameCollection</a>
-                </th>
-                <th>@collect.NameAuthor</th>
-                <th>@Markdown.ParseHtmlString(collect.ShortDescription)</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                 {
-                    <th>
-                        <button class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Collect" asp-route-Id="@collect.Id">Удалить</button>
-                        <p></p>
-                        <button class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Collect" asp-route-Id="@collect.Id">Редактировать</button>
-                    </th>
-                 }
-
-            </tr>
-         }
-    </table>
-</form>
+        {
+            <a class="card shadow decoration-none text-dark" asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">
+                <img src="@collect.Photo" alt="Card Picture" />
+                <div class="card-body">
+                    <h5 class="card-title h5">@collect.NameCollection</h5>
+                    <p class="card-text mb-3">@collect.NameAuthor</p>
+                    <p class="card-text">@Markdown.ParseHtmlString(collect.ShortDescription)</p>
+                </div>
+                <div class="d-flex justify-content-around align-items-center pb-3">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <button type="submit" class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Collect" asp-route-Id="@collect.Id">Удалить</button>
+                        <button type="submit" class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Collect" asp-route-Id="@collect.Id">Редактировать</button>
+                    }
+                </div>
+            </a>
+        }
+    </form>
+</section>
 
 <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
 <script src="~/scripts/jqcloud.min.js"></script>
 
 @foreach (var item in ViewBag.itemsforCloud)
 {
-    <input type="hidden" value="@item.Tags" id="@item.Id"/>
+    <input type="hidden" value="@item.Tags" id="@item.Id" />
 }
 
 <script type="text/javascript" charset="UTF-16">
@@ -58,8 +43,6 @@
              @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
-            $('#demo').jQCloud(words, {
-                    height: 250
-            });
-        });
+            $('#tag-cloud').jQCloud(words);
+    });
 </script>
