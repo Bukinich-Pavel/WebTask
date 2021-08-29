@@ -21,8 +21,6 @@ namespace WebTask.Controllers
         private ApplicationContext db;
 
 
-        protected string MyProperty { get { return "your value"; } }
-
         public HomeController(ICollectData collectData, IItemData itemData, IItemLikeData itemLikeData, ApplicationContext context, ICommentData commentData)
         {
             this.collectData = collectData;
@@ -43,14 +41,10 @@ namespace WebTask.Controllers
             return View(collectData.GetCollect());
         }
 
-        public IActionResult LikeItem(string tag, int id)
+        public async Task<IActionResult> LikeItem(string tag, int id)
         {
-            var itemsLike = db.itemsLike.Where(p => p.ItemId == id && p.NameUser == User.Identity.Name).ToList<ItemLike>();
-            ItemLike itemLike = null;
-            foreach (var item in itemsLike)
-            {
-                itemLike = item;
-            }
+            var itemLike = await db.itemsLike.FirstOrDefaultAsync(p => p.ItemId == id && p.NameUser == User.Identity.Name);
+
             if (itemLike == null)
             {
                 ItemLike itemL = new ItemLike() { ItemId = id, NameUser = User.Identity.Name, Like = true };
@@ -61,33 +55,27 @@ namespace WebTask.Controllers
                 itemLike.Like = itemLike.Like == true ? false : true;
                 db.itemsLike.Update(itemLike);
                 db.SaveChanges();
-
             }
             
             return RedirectToAction("ItemsAll", "Item", new { Id = tag });
         }
 
-        public IActionResult CommentsView(int itemId)
+        public async Task<IActionResult> CommentsView(int itemId)
         {
-            var commentsList = db.comments.Where(p => p.ItemId == itemId).ToList<Comment>();
-            var ItemComments = db.items.Where(p => p.Id == itemId).ToList<Item>();
-            ViewBag.Comments = commentsList;
-
-            foreach (var item in ItemComments)
-            {
-                ViewBag.Item = item;
-            }
-
+            ViewBag.Comments = db.comments.Where(p => p.ItemId == itemId).ToList<Comment>();
+            ViewBag.Item = await db.items.FirstOrDefaultAsync(p => p.Id == itemId);
             return View();
-        }
+        } //open view
 
         public IActionResult AddComment(Comment comment)
         {
-            comment.DateTimeComment = DateTime.Now;
-            comment.UserName = User.Identity.Name;
-            commentData.AddComment(comment);
-            return new NoContentResult();
-            //return RedirectToAction("CommentsView", "Home", new { itemId = comment.ItemId });
+            if(comment.CommentText != null)
+            {
+                comment.DateTimeComment = DateTime.Now;
+                comment.UserName = User.Identity.Name;
+                commentData.AddComment(comment);
+            }
+            return RedirectToAction("CommentsView", "Home", new { itemId = comment.ItemId });
         }
     }
 

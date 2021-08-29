@@ -6,12 +6,15 @@ C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\css\likecss.css
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\css\StyleForDropIMG.css
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\img\unnamed.jpg
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\date.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\jqcloud.min.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\jquery-ui-1.12.1.min.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\jquery-ui.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\jquery.filedrop.js
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\microsoft\signalr\dist\browser\signalr.min.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\wwwroot\scripts\scriptDropIMG.js
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\libman.json
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\WebTask.dll
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\WebTask.runtimeconfig.json
 C:\Users\Ксения\source\repos\WebTask\WebTask\obj\Release\net5.0\PubTmp\Out\WebTask.pdb
