@@ -12,8 +12,8 @@
             <a class="card shadow decoration-none text-dark" asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">
                 <img src="@collect.Photo" alt="Card Picture" />
                 <div class="card-body">
-                    <h5 class="card-title h5">@collect.NameCollection</h5>
-                    <p class="card-text mb-3">@collect.NameAuthor</p>
+                    <h5 class="card-title">@collect.NameCollection</h5>
+                    <p class="card-text">@collect.NameAuthor</p>
                     <p class="card-text">@Markdown.ParseHtmlString(collect.ShortDescription)</p>
                 </div>
                 <div class="d-flex justify-content-around align-items-center pb-3">

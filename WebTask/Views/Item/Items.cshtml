@@ -1,6 +1,6 @@
 ﻿@using WebTask;
 @model WebTask.Models.Item
-<div id="demo"></div>
+<div id="tag-cloud" class="m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
 <h4>Коллекция: @ViewBag.Collect.NameCollection</h4>
 <h4>Автора: @ViewBag.Collect.NameAuthor</h4>
 <p></p>
@@ -192,7 +192,7 @@
              @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
-            $('#demo').jQCloud(words, {
+            $('#tag-cloud').jQCloud(words, {
                     height: 250
             });
         });

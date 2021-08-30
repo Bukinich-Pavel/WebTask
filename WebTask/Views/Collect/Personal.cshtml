@@ -1,5 +1,5 @@
 ﻿@using WebTask;
-<div id="tag-cloud" class=" text-primary m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
+<div id="tag-cloud" class="m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
 <form class="d-flex" method="get" asp-action="AddCollect" asp-controller="Collect">
     <button type="submit" class="btn btn-lg btn-primary mx-auto mb-5">Добавить коллекцию</button>
 </form>
@@ -10,11 +10,11 @@
     {
         @if (collect.NameAuthor == User.Identity.Name)
         {
-            <a class="card shadow decoration-none text-dark w-100" asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">
+            <a class="card shadow decoration-none text-dark" asp-controller="Item" asp-action="Items" asp-route-id="@collect.Id">
                 <img src="@collect.Photo" alt="Card Picture" />
                 <div class="card-body">
-                    <h5 class="card-title h5">@collect.NameCollection</h5>
-                    <p class="card-text mb-3">@collect.NameAuthor</p>
+                    <h5 class="card-title">@collect.NameCollection</h5>
+                    <p class="card-text">@collect.NameAuthor</p>
                     <p class="card-text">@Markdown.ParseHtmlString(collect.ShortDescription)</p>
                 </div>
                 <div class="d-flex justify-content-around align-items-center pb-3 flex-wrap">

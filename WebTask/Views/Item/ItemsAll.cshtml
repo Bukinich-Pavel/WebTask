@@ -1,6 +1,6 @@
 ﻿<h4>Поиск по тегу: @ViewBag.Tag</h4>
 <p></p>
-<div id="demo"></div>
+<div id="tag-cloud" class="m-auto" style="width:100%; max-width: 800px; height: 200px !important;"></div>
 
 <form asp-controller="Home" asp-action="LikeItem" method="post">
 
@@ -66,7 +66,7 @@
              @:words.push({ text: $("#@item.Id").val(), weight: 13, link: "/Item/ItemsAll/" + $("#@item.Id").val()  })
          }
         $(function () {
-            $('#demo').jQCloud(words, {
+            $('#tag-cloud').jQCloud(words, {
                     height: 250
             });
             });

@@ -7,8 +7,8 @@
         <nav class="d-flex justify-content-between align-items-center flex-wrap">
             <a class="header-logo" asp-action="Index" asp-controller="Home"></a>
             <form class="d-flex justify-content-between align-items-center flex-wrap" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
-                <a class="btn-light bg-transparent text-light header-link" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
-                <a class="btn-light bg-transparent text-light header-link" asp-action="Index" asp-controller="Roles">Список пользователей</a>
+                <a class="text-light header-link" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
+                <a class="text-light header-link" asp-action="Index" asp-controller="Roles">Список пользователей</a>
                 <button type="submit" class="h5 btn btn-light" style="margin-bottom: 0;">Выход</button>
             </form>
         </nav>
@@ -20,7 +20,7 @@ else if (User.Identity.IsAuthenticated)
         <nav class="d-flex justify-content-between align-items-center flex-wrap">
             <a class="header-logo" asp-action="Index" asp-controller="Home"></a>
             <form class="d-flex justify-content-between align-items-center flex-wrap" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
-                <a class="btn-light bg-transparent text-light header-link" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
+                <a class="text-light header-link" asp-action="Personal" asp-controller="Collect">@User.Identity.Name</a>
                 <button type="submit" class="h5 btn btn-light" style="margin-bottom: 0;">Выход</button>
             </form>
         </nav>
@@ -32,8 +32,8 @@ else
         <nav class="d-flex justify-content-between align-items-center flex-wrap">
             <a class="header-logo" asp-action="Index" asp-controller="Home"></a>
             <form class="d-flex justify-content-between align-items-center flex-wrap" asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
-                <a class="btn-light bg-transparent text-light header-link" asp-action="Login" asp-controller="Account">Вход</a>
-                <a class="btn-light bg-transparent text-light header-link" asp-action="Register" asp-controller="Account">Регистрация </a>
+                <a class="text-light header-link" asp-action="Login" asp-controller="Account">Вход</a>
+                <a class="text-light header-link" asp-action="Register" asp-controller="Account">Регистрация </a>
             </form>
         </nav>
     </header>

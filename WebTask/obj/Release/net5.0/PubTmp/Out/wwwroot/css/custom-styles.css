@@ -35,3 +35,7 @@
 .decoration-none {
     text-decoration: none;
 }
+
+index-max {
+    z-index: 999;
+}
