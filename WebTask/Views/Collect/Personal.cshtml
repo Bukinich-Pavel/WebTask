@@ -18,7 +18,7 @@
                     <p class="card-text">@Markdown.ParseHtmlString(collect.ShortDescription)</p>
                 </div>
                 <div class="d-flex justify-content-around align-items-center pb-3 flex-wrap">
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    @if (User.Identity.IsAuthenticated)
                     {
                         <button type="submit" class="btn btn-sm btn-danger" asp-action="DeleteCollect" asp-controller="Collect" asp-route-Id="@collect.Id">Удалить</button>
                         <button type="submit" class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Collect" asp-route-Id="@collect.Id">Редактировать</button>
