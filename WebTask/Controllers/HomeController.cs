@@ -79,7 +79,7 @@ namespace WebTask.Controllers
         }
     }
 
-    static class StatMethod
+    class StatMethod
     {
         public static IEnumerable<Item> ReturnUniqueTags(ApplicationContext db)
         {

@@ -44,6 +44,14 @@ namespace WebTask
             services.AddTransient<IItemData, ItemData>();
             services.AddTransient<IItemLikeData, ItemLikeData>();
             services.AddTransient<ICommentData, CommentData>();
+
+            services.AddAuthentication()
+                .AddGoogle(opts =>
+                {
+                    opts.ClientId = "715582416158-4u5fpf4j77unl7dmavd42vcsecibnfff.apps.googleusercontent.com";
+                    opts.ClientSecret = "gUCeBaIHLxcnzdYQ2E0rO3Nd";
+                    opts.SignInScheme = IdentityConstants.ExternalScheme;
+                });
             //services.AddAuthentication()
             //.AddFacebook(options =>
             //{
